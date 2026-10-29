@@ -51,3 +51,18 @@ Manejo de MobaXterm:
   La interfaz gráfica de MobaXterm activa automáticamente, utilizando el mismo puerto 222. Esto permite confirmar que la subida,
   bajada y edición visual de archivos dentro del servidor
   CentOS funcionan de manera fluida y segura.
+
+
+## Conclusión:
+De acuerdo con las pruebas y evidencias operativas registradas en el sistema, se concluye que:
+
+Reconfiguración Exitosa del Servicio: Se realizó de forma satisfactoria la modificación del archivo de configuración del demonio de OpenSSH (/etc/ssh/sshd_config) en el servidor (IP 10.21.165.123).   
+
+
+Adaptación de Políticas de Seguridad (SELinux): Mediante la ejecución de semanage port, se actualizaron de manera correcta las reglas de SELinux para permitir el tráfico SSH a través del puerto no estándar 222/TCP, garantizando la integración de los cambios sin comprometer las políticas de seguridad del sistema operativo.   
+
+
+Operatividad y Validación de Conexión: Tras reiniciar y auditar el estado del servicio (systemctl status sshd), se verificó que el demonio de SSH se encuentra en estado activo y escuchando peticiones en la dirección 0.0.0.0:222. Asimismo, los registros de auditoría (logs) confirmaron la autenticación e inicio de sesión exitoso del usuario chrisspatoby2008 mediante la nueva vía de acceso configurada.
+
+
+En síntesis, la implementación del cambio de puerto para el servicio SSH se ejecutó de manera efectiva, cumpliendo con los estándares de administración de sistemas y manteniendo la disponibilidad del acceso remoto.
